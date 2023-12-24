@@ -76,7 +76,7 @@ export const PokemonContextProvider = ({children}) => {
     function FilterPokemons(pokes){
         setLoading(true)    
         const filteredPokes = pokes.filter((pokemon)=>{
-            if ((pokemon.name.includes(search) || search=='' || pokemon.id==search )&& (type==='all' || pokemon.types.includes(type))){
+            if ((pokemon.name.includes(search.toLowerCase()) || search=='' || pokemon.id==search )&& (type==='all' || pokemon.types.includes(type))){
                 return true
             }
             return false
