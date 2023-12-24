@@ -16,7 +16,7 @@ import logo from '../pokeball.png'
 import { Checkbox, FormControl, InputLabel, MenuItem } from '@mui/material';
 import Select from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
-import { usePokemon } from '../hooks/usePokemons';
+import { usePokemon } from '../context/PokemonContext';
 import { Divider, Input } from '@mui/joy';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';

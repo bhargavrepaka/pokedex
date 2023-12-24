@@ -1,7 +1,7 @@
 import { Grid, ListItem, Typography } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import {usePokemon} from '../hooks/usePokemons'
+import {usePokemon} from '../context/PokemonContext'
 import PokemonCard from '../components/PokemonCard'
 import Nav from '../components/Nav'
 import useInfiniteScroll from 'react-infinite-scroll-hook';
