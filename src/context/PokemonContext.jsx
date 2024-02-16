@@ -1,4 +1,4 @@
-import { Filter } from '@mui/icons-material'
+
 import axios from 'axios'
 import { FastAverageColor } from 'fast-average-color'
 import React, { createContext, useContext, useEffect, useState } from 'react'
@@ -10,7 +10,7 @@ export const PokemonContextProvider = ({children}) => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const [hasNextPage, setHasNextPage] = useState(false)
-    const [nextPage, setNextPage] = useState(1)
+    const [nextPage, setNextPage] = useState('null')
     const [search, setSearch] = useState('')
     const [type, setType] = useState('all')
 
@@ -22,7 +22,10 @@ export const PokemonContextProvider = ({children}) => {
         }
     },[])
     useEffect(()=>{
-        FilterPokemons(pokemons)
+        if(pokemons){
+            FilterPokemons(pokemons)
+        }
+        
     },[search,type])
 
     async function getPokemons(url='https://pokeapi.co/api/v2/pokemon?limit=21'){

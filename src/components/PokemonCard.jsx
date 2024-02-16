@@ -67,111 +67,49 @@ const PokemonCard = ({ pokemon }) => {
                 </Card>
             }
             <Modal
-                open={showModal}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Paper sx={style} >
-                    <Typography mb={3} variant='h5'>Stats</Typography>
+            open={showModal}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+        >
+            <Paper sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 400, p: 4 }}>
+                <Typography variant="h4" mb={2} align="center">Stats</Typography>
+                <Grid container direction="column" spacing={2}>
+                    <StatBar label="HP" value={pokemon.stats.hp} />
+                    <StatBar label="Attack" value={pokemon.stats.attack} />
+                    <StatBar label="Defense" value={pokemon.stats.defense} />
+                    <StatBar label="Speed" value={pokemon.stats.speed} />
+                    <StatBar label="Sp. Attack" value={pokemon.stats.special_attack} />
+                    <StatBar label="Sp. Defense" value={pokemon.stats.special_defense} />
+                </Grid>
+            </Paper>
+        </Modal>
 
-                    <Grid container direction={'column'} display={'flex'} gap={2} >
-                        <Grid item >
-                            <Grid container gap={1}>
-                                <Grid xs={2} item><Typography color={"#D3D3D3"} fontWeight={'bolder'} align='right'>HP:</Typography></Grid>
-                                <Grid xs={1}  item><Typography fontWeight={'bolder'} >{pokemon.stats.hp}</Typography></Grid>
-                                <Grid xs={12} md={6}  alignItems={'center'} item>
-                                    <Box mb={1} sx={{
-                                        height: 20, width: '400px',
-                                        background: ` linear-gradient(to right,
-                                        ${pokemon.stats.hp > 75 ? '#00FF00' : pokemon.stats.hp > 50 ? '#FFFF00' : pokemon.stats.hp > 25 ? '#FFA500' : '#FF0000'} 
-                                        ${pokemon.stats.hp}%, #D3D3D3 0%)`,
-                                        borderRadius: 4
-                                    }}></Box>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item >
-                            <Grid container gap={1}>
-                                <Grid xs={2} item><Typography color={"#D3D3D3"} fontWeight={'bolder'} align='right'>Attack:</Typography></Grid>
-                                <Grid xs={1} item><Typography fontWeight={'bolder'} >{pokemon.stats.attack}</Typography></Grid>
-                                <Grid xs={12} md={6}  alignItems={'center'} item>
-                                    <Box mb={1} sx={{
-                                        height: 20, width: '400px',
-                                        background: ` linear-gradient(to right,
-                                        ${pokemon.stats.attack > 75 ? '#00FF00' : pokemon.stats.attack > 50 ? '#FFFF00' : pokemon.stats.attack > 25 ? '#FFA500' : '#FF0000'} 
-                                        ${pokemon.stats.attack}%, #D3D3D3 0%)`,
-                                        borderRadius: 4
-                                    }}></Box>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item >
-                            <Grid container gap={1}>
-                                <Grid xs={2} item><Typography color={"#D3D3D3"} fontWeight={'bolder'} align='right'>Defense:</Typography></Grid>
-                                <Grid xs={1} item><Typography fontWeight={'bolder'} >{pokemon.stats.defense}</Typography></Grid>
-                                <Grid xs={12} md={6}  alignItems={'center'} item>
-                                    <Box mb={1} sx={{
-                                        height: 20, width: '400px',
-                                        background: ` linear-gradient(to right,
-                                        ${pokemon.stats.defense > 75 ? '#00FF00' : pokemon.stats.defense > 50 ? '#FFFF00' : pokemon.stats.defense > 25 ? '#FFA500' : '#FF0000'} 
-                                        ${pokemon.stats.defense}%, #D3D3D3 0%)`,
-                                        borderRadius: 4
-                                    }}></Box>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item >
-                            <Grid container gap={1}>
-                                <Grid xs={2} item><Typography color={"#D3D3D3"} fontWeight={'bolder'} align='right'>Speed:</Typography></Grid>
-                                <Grid xs={1} item><Typography fontWeight={'bolder'} >{pokemon.stats.speed}</Typography></Grid>
-                                <Grid xs={12} md={6}  alignItems={'center'} item>
-                                    <Box mb={1} sx={{
-                                        height: 20, width: '400px',
-                                        background: ` linear-gradient(to right,
-                                        ${pokemon.stats.speed > 75 ? '#00FF00' : pokemon.stats.speed > 50 ? '#FFFF00' : pokemon.stats.speed > 25 ? '#FFA500' : '#FF0000'} 
-                                        ${pokemon.stats.speed}%, #D3D3D3 0%)`,
-                                        borderRadius: 4
-                                    }}></Box>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item >
-                            <Grid container gap={1}>
-                                <Grid xs={2} item><Typography color={"#D3D3D3"} fontWeight={'bolder'} align='right'>Sp. Attack:</Typography></Grid>
-                                <Grid xs={1} item><Typography fontWeight={'bolder'} >{pokemon.stats.special_attack}</Typography></Grid>
-                                <Grid xs={12} md={6}  alignItems={'center'} item>
-                                    <Box mb={1} sx={{
-                                        height: 20, width: '400px',
-                                        background: ` linear-gradient(to right,
-                                        ${pokemon.stats.special_attack > 75 ? '#00FF00' : pokemon.stats.special_attack > 50 ? '#FFFF00' : pokemon.stats.special_attack > 25 ? '#FFA500' : '#FF0000'} 
-                                        ${pokemon.stats.special_attack}%, #D3D3D3 0%)`,
-                                        borderRadius: 4
-                                    }}></Box>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item >
-                            <Grid container gap={1}>
-                                <Grid xs={2} item><Typography color={"#D3D3D3"} fontWeight={'bolder'} align='right'>Sp. Defense:</Typography></Grid>
-                                <Grid xs={1} item><Typography fontWeight={'bolder'} >{pokemon.stats.special_defense}</Typography></Grid>
-                                <Grid xs={12} md={6}  alignItems={'center'} item>
-                                    <Box mb={1} sx={{
-                                        height: 20, width: '400px',
-                                        background: ` linear-gradient(to right,
-                                        ${pokemon.stats.special_defense > 75 ? '#00FF00' : pokemon.stats.special_defense > 50 ? '#FFFF00' : pokemon.stats.special_defense > 25 ? '#FFA500' : '#FF0000'} 
-                                        ${pokemon.stats.special_defense}%, #D3D3D3 0%)`,
-                                        borderRadius: 4
-                                    }}></Box>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Paper>
-            </Modal>
         </>
     )
 }
+
+const StatBar = ({ label, value }) => {
+    const getColorForValue = (value) => {
+        return value > 75 ? '#00FF00' : value > 50 ? '#FFFF00' : value > 25 ? '#FFA500' : '#FF0000';
+    };
+
+    return (
+        <Grid container alignItems="center">
+            <Grid item xs={4}>
+                <Typography variant="body1" fontWeight="bold">{label}</Typography>
+            </Grid>
+            <Grid item xs={8}>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Box sx={{ flexGrow: 1, height: 8, borderRadius: 4, bgcolor: 'background.default', marginRight: 1 }}>
+                        <Box sx={{ borderRadius: 4, height: '100%', width: `${value}%`, bgcolor: getColorForValue(value) }} />
+                    </Box>
+                    <Typography variant="body2" color="textSecondary">{value}</Typography>
+                </Box>
+            </Grid>
+        </Grid>
+    );
+};
 
 
 export default PokemonCard
